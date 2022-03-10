@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<h4>Nama product : {{ shop.product }} </h4>
+<h4>Harga product : {{ shop.price }} </h4>
+
+
+{{form(form)}}
+ <a class="btn btn-danger" href='/shop' >cancel</a>
+{% endblock %}

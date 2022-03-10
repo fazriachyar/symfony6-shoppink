@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h2>Product List</h2>
+    {% if app.user %}
+        <div class="mb-3">
+            <p>You are logged in as <b>{{ app.user.username }}</b></p>
+        </div>
+    {% endif %}
+<table class="table table-sm">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>        
+    {% for shop in shops %}
+        <tr>
+            <th scope="row">{{ shop.id }}</th>
+            <td>{{ shop.product }}</td>
+            <td>{{ shop.price }}</td>
+            <td>
+                <a href="/shop/product/ {{ shop.id }}" class="btn btn-primary">Add to Cart</a>
+            </td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
